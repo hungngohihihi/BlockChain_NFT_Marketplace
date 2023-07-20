@@ -1,13 +1,13 @@
 import Web3 from 'web3'
-import {  setGlobalState, getGlobalState, setAlert } from './store'
+import { setGlobalState, getGlobalState, setAlert } from './store'
 import { useGlobalState } from './store'
-import abi from './abis/TimelessNFT.json'
+import abi from './abis/openseeNFT.json'
 
 const { ethereum } = window
 window.web3 = new Web3(ethereum)
 window.web3 = new Web3(window.web3.currentProvider)
 
-const getEtheriumContract = async () => { //lấy thông tin smartcontract TimelessNFT từ mạng Ethereum.
+const getEtheriumContract = async () => { //lấy thông tin smartcontract OpenSee từ mạng Ethereum.
   const web3 = window.web3   //lấy phiên bản Web3 
   const networkId = await web3.eth.net.getId() //lấy ID của mạng hiện tại 
   const networkData = abi.networks[networkId]  //kiểm tra xem có đúng id không
@@ -113,7 +113,7 @@ const mintNFT = async ({ title, description, metadataURI, price }) => { //tạo 
   }
 }
 
-const buyNFT = async ({ id, cost }) => { //mua một NFT bằng cách gửi Ether cho hợp đồng.
+const buyNFT = async ({ id, cost }) => { //mua một NFT bằng cách gửi Ether cho contract.
   try {
     cost = window.web3.utils.toWei(cost.toString(), 'ether')
     const contract = await getEtheriumContract()
@@ -129,7 +129,7 @@ const buyNFT = async ({ id, cost }) => { //mua một NFT bằng cách gửi Ethe
   }
 }
 
-const updateNFT = async ({ id, cost }) => {  //cập nhật giá của một NFT bằng cách gửi giao dịch tới hợp đồng.
+const updateNFT = async ({ id, cost }) => {  //cập nhật giá của một NFT bằng cách gửi giao dịch tới contract.
   try {
     cost = window.web3.utils.toWei(cost.toString(), 'ether')
     const contract = await getEtheriumContract()

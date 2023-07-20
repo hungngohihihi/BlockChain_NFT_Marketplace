@@ -9,13 +9,13 @@ import { FaTimes } from 'react-icons/fa'
 import { create } from 'ipfs-http-client'
 import { mintNFT } from '../Blockchain.Services'
 
-const auth =
+const auth =  // Chuỗi xác thực
   'Basic ' +
   Buffer.from(
     process.env.REACT_APP_INFURIA_PID + ':' + process.env.REACT_APP_INFURIA_API,
   ).toString('base64')
 
-const client = create({
+const client = create({  // tạo client IPFS
   host: 'ipfs.infura.io',
   port: 5001,
   protocol: 'https',
@@ -24,6 +24,9 @@ const client = create({
   },
 })
 
+// console.log(auth);
+// console.log(client.host);
+  
 const CreateNFT = () => {
   const [modal] = useGlobalState('modal')
   const [title, setTitle] = useState('')
@@ -41,7 +44,7 @@ const CreateNFT = () => {
     setGlobalState('loading', { show: true, msg: 'Uploading IPFS data...' })
 
     try {
-      const created = await client.add(fileUrl)
+      const created = await client.add(fileUrl)  //Đưa dữ liệu lên IPFS 
       const metadataURI = `https://ipfs.io/ipfs/${created.path}`
       const nft = { title, price, description, metadataURI }
 
@@ -109,7 +112,7 @@ const CreateNFT = () => {
                 className="h-full w-full object-cover cursor-pointer"
                 src={
                   imgBase64 ||
-                  'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1361&q=80'
+                  'https://ipfs.io/ipfs/QmXFBCFtX81o1cx2p2g97phVBEHF6tG9PhFXnMPeFidiEJ'
                 }
               />
             </div>

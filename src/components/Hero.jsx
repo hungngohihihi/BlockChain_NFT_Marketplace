@@ -12,27 +12,27 @@ const Hero = () => {
       className="flex flex-col md:flex-row w-4/5 justify-between 
       items-center mx-auto py-10"
     >
-      <div className="md:w-3/6 w-full">
-        <div>
-          <h1 className="text-black text-5xl font-bold">
-            Buy and Sell <br /> Photography, <br />
-            <span className="">NFTs</span> 
-          </h1>
-          {/* <p className="text-gray-500 font-semibold text-sm mt-3">
-            Mint and collect the hottest NFTs around.
-          </p> */}
-        </div>
-
-        <div className="flex flex-row mt-5">
+      <div className="w-full">
+        <div className="flex flex-row items-center mt-5 justify-center">
           <button
             className="shadow-lg shadow-black text-white
-            bg-[#7b7b7b] hover:bg-[#000000]
-            rounded-full cursor-pointer p-2"
+              bg-[#7b7b7b] hover:bg-[#000000]
+              rounded-full cursor-pointer p-2"
             onClick={onCreatedNFT}
           >
             Create NFT
           </button>
         </div>
+        <div>
+          {/* <h1 className="text-black text-5xl font-bold">
+            Buy and Sell <br /> Photography, <br />
+            <span className="">NFTs</span>
+          </h1> */}
+          {/* <p className="text-gray-500 font-semibold text-sm mt-3">
+            Mint and collect the hottest NFTs around.
+          </p> */}
+        </div>
+
 
         <div className="w-3/4 flex justify-between items-center mt-5">
           <div>
@@ -50,7 +50,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <div
+      {/* <div
         className="shadow-lg shadow-black md:w-2/5 w-full 
       mt-10 md:mt-0 rounded-md overflow-hidden bg-black"
       >
@@ -74,7 +74,7 @@ const Hero = () => {
             <small className="text-blue-800 font-bold">@you</small>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }

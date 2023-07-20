@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
 
-contract Migrations {
+contract Migrations { // quản lý quá trình di chuyển của hợp đồng thông qua việc lưu trữ thông tin về phiên bản cuối cùng
   address public owner = msg.sender;
   uint public last_completed_migration;
 

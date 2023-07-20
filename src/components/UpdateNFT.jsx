@@ -39,7 +39,7 @@ const UpdateNFT = () => {
       justify-center bg-black bg-opacity-50 transform
       transition-transform duration-300 ${modal}`}
     >
-      <div className="bg-[#151c25] shadow-xl shadow-[#e32970] rounded-xl w-11/12 md:w-2/5 h-7/12 p-6">
+      <div className="bg-[#151c25] shadow-xl shadow-[#000000] rounded-xl w-11/12 md:w-2/5 h-7/12 p-6">
         <form className="flex flex-col">
           <div className="flex flex-row justify-between items-center">
             <p className="font-semibold text-gray-400">{nft?.title}</p>
@@ -81,11 +81,11 @@ const UpdateNFT = () => {
             type="submit"
             onClick={handleSubmit}
             className="flex flex-row justify-center items-center
-            w-full text-white text-md bg-[#e32970]
-            hover:bg-[#bd255f] py-2 px-5 rounded-full
+            w-full text-white text-md bg-[#7b7b7b]
+            hover:bg-[#000000] py-2 px-5 rounded-full
             drop-shadow-xl border border-transparent
-            hover:bg-transparent hover:text-[#e32970]
-            hover:border hover:border-[#bd255f]
+            hover:bg-transparent hover:text-[#7b7b7b]
+            hover:border hover:border-[#000000]
             focus:outline-none focus:ring mt-5"
           >
             Update Now

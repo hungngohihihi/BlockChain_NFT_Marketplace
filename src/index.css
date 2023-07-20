@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+.mx-4{
+  margin-left: -50px;
+}
+
 body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
