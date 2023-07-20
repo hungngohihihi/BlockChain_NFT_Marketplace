@@ -31,3 +31,4 @@ To run the demo follow these steps:
     ```
 7. Add some ganache accounts, connect your wallet and interact with the app.
 <br/>
+

@@ -4,6 +4,7 @@ pragma solidity >=0.7.0 <0.9.0;
 import "./ERC721.sol";
 import "./ERC721Enumerable.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
+// import "solidity-string-utils/strings.sol";
 
 contract TimelessNFT is ERC721Enumerable, Ownable {
     using Strings for uint256;
@@ -54,8 +55,8 @@ contract TimelessNFT is ERC721Enumerable, Ownable {
         string memory description,
         string memory metadataURI,
         uint256 salesPrice
-    ) external payable {
-        require(msg.value >= cost, "Ether too low for minting!");
+    ) external payable {   // payable khác với address thông thường là địa chỉ có thể gửi ether tới (transfer và send)
+        require(msg.value >= cost, "Ether too low for minting!");  // require được sử dụng để kiểm tra điều kiện và nếu điều kiện không đúng, giao dịch sẽ bị hủy và tất cả các thay đổi sẽ được hồi quy (reverted). 
         require(existingURIs[metadataURI] == 0, "This NFT is already minted!");
 
         uint256 royality = (msg.value * royalityFee) / 100;
@@ -150,4 +151,24 @@ contract TimelessNFT is ERC721Enumerable, Ownable {
     {
         return transactions;
     }
+
+    // function getTransactionHash(uint256 id) public view returns (bytes32) {
+    //     TransactionStruct memory transaction = minted[id - 1];
+
+    //     string memory transactionData = transaction.id.toString().toSlice().concat(
+    //         transaction.owner.toString().toSlice()
+    //     ).toSlice().concat(
+    //         transaction.cost.toString().toSlice()
+    //     ).toSlice().concat(
+    //         transaction.title.toSlice()
+    //     ).toSlice().concat(
+    //         transaction.description.toSlice()
+    //     ).toSlice().concat(
+    //         transaction.metadataURI.toSlice()
+    //     ).toSlice().concat(
+    //         transaction.timestamp.toString().toSlice()
+    //     );
+
+    //     return keccak256(abi.encodePacked(transactionData));
+    // }
 }

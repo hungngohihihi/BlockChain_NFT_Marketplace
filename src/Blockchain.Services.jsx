@@ -1,5 +1,6 @@
 import Web3 from 'web3'
-import { setGlobalState, getGlobalState, setAlert } from './store'
+import {  setGlobalState, getGlobalState, setAlert } from './store'
+import { useGlobalState } from './store'
 import abi from './abis/TimelessNFT.json'
 
 const { ethereum } = window
@@ -10,11 +11,23 @@ const getEtheriumContract = async () => { //lấy thông tin smartcontract Timel
   const web3 = window.web3   //lấy phiên bản Web3 
   const networkId = await web3.eth.net.getId() //lấy ID của mạng hiện tại 
   const networkData = abi.networks[networkId]  //kiểm tra xem có đúng id không
+  // console.log("contract._address")
+  // try{
+  //   // const [addressContract] = useGlobalState('addressContract')
+  // }catch(error){
+  //   console.log(error)
+  // }
+
 
   if (networkData) {
     const contract = new web3.eth.Contract(abi.abi, networkData.address)
+    // console.log(contract._address);
+    // setGlobalState('addressContract', contract._address);
+    // console.log("contract._addressaaa")
+    console.log(contract);
     return contract
   } else {
+    console.log("contract._address")
     return null
   }
 }
