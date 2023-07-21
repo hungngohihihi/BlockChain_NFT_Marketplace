@@ -1,6 +1,6 @@
 ## To run the demo follow these steps:
 
-1:
+1. Clone project: https://github.com/hungngohihihi/NFT_Market
     ```sh
     cd PROJECT_NAME # Navigate to the new folder.
     yarn install # Installs all the dependencies.
