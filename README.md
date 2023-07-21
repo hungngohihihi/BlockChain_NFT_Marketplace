@@ -1,4 +1,4 @@
-To run the demo follow these steps:
+## To run the demo follow these steps:
 
 1:
     ```sh
